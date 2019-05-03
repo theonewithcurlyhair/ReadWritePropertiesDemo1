@@ -21,14 +21,14 @@ namespace FormFrontEnd
             }
             set
             {
-                if(value.ToUpper() == "RED" || value.ToUpper() == "BLUE")
-                {
-                    color = value;
-                }
-                else
-                {
-                    throw new DataException("Color must be red or blue");
-                }
+                //if(value.ToUpper() == "RED" || value.ToUpper() == "BLUE")
+                //{
+                    color = value.Trim();
+                //}
+                //else
+                //{
+                  //  throw new DataException("Color must be red or blue");
+                //}
             }
         }
 
@@ -54,8 +54,8 @@ namespace FormFrontEnd
                 return diameter;
             }
             set
-            {
-                if(Color != "")
+            {                
+                if(!string.IsNullOrEmpty(color))
                 {
                     if (Color.ToUpper() == "RED")
                     {

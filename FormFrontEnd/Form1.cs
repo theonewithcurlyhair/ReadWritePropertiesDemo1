@@ -26,8 +26,8 @@ namespace FormFrontEnd
                 //Chris must instanciate his object
                 myFirstBallon = new Balloon()
                 {
-                    Color = txtColor.Text.Trim(),
                     Diameter = Convert.ToDecimal(txtDiameter.Text.Trim()),
+                    Color = txtColor.Text.Trim(),
                     Height = Convert.ToDecimal(txtHeight.Text.Trim())
 
                 };
