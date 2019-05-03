@@ -10,7 +10,7 @@ namespace FormFrontEnd
     public class Balloon
     {
         private string color;
-        private decimal height;
+        //private decimal height; this one is auto
         private decimal diameter;
 
         public string Color
@@ -31,6 +31,11 @@ namespace FormFrontEnd
                 }
             }
         }
+
+        private decimal height { get; set; }
+
+        //public string BaloonName { get; set; } just an example of auto properties
+
         public decimal Height
         {
             get
@@ -50,7 +55,35 @@ namespace FormFrontEnd
             }
             set
             {
-                diameter = value;
+                if(Color != "")
+                {
+                    if (Color.ToUpper() == "RED")
+                    {
+                        if (value <= 12)
+                        {
+                            diameter = value;
+                        }
+                        else
+                        {
+                            throw new ConstraintException("Red Baloons Diamaeters cannot be greater 12");
+                        }
+                    }
+                    else if (Color.ToUpper() == "BLUE")
+                    {
+                        if(value >= 5)
+                        {
+                            diameter = value;
+                        }
+                        else
+                        {
+                            throw new ConstraintException("Blue balloons diameter cannot be less than 5");
+                        }
+                    }
+                }
+                else
+                {
+                    throw new DataException("Color should be set prior");
+                }
             }
         }
     }

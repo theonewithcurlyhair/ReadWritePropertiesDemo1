@@ -27,13 +27,18 @@ namespace FormFrontEnd
                 myFirstBallon = new Balloon()
                 {
                     Color = txtColor.Text.Trim(),
-                    Height = Convert.ToDecimal(txtHeight.Text.Trim()),
-                    Diameter = Convert.ToDecimal(txtDiameter.Text.Trim())
+                    Diameter = Convert.ToDecimal(txtDiameter.Text.Trim()),
+                    Height = Convert.ToDecimal(txtHeight.Text.Trim())
+
                 };
 
                 //myFirstBallon.Color = txtColor.Text.Trim();
                 //myFirstBallon.Height = Convert.ToDecimal(txtHeight.Text.Trim());
                 //myFirstBallon.Diameter = Convert.ToDecimal(txtDiameter.Text.Trim());
+            }
+            catch(ConstraintException ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch(DataException ex)
             {
